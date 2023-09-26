@@ -1,0 +1,28 @@
+.sub_page_main{border-bottom:1px solid #e4e4e4;}
+.intro_box{width:100%; height:100%; padding: 140px 250px 166px 250px; box-sizing: border-box;}
+.intro_box > .intro_menu{width:100%; display:flex; align-items: center; justify-content: center; flex-wrap: wrap;}
+.intro_box > .intro_menu li{width: 1100px; height: 810px;}
+.intro_box > .intro_menu li .menu_btn_li{position: relative; height:100%; display:flex; justify-content: center; align-items: center;}
+.intro_box > .intro_menu li .menu_btn_li.left_border::before{content: ''; display:inline-block; position: absolute; left:0; width:4px; height:calc(100% - 80px); background-color:#5AD3C0;}
+.intro_box > .intro_menu li .menu_btn_li.left_border.t_0::before{top:0;}
+.intro_box > .intro_menu li .menu_btn_li.left_border.b_0::before{bottom:0;}
+.intro_box > .intro_menu li:nth-child(1) .menu_btn_li::after,
+.intro_box > .intro_menu li:nth-child(2) .menu_btn_li::after,
+.intro_box > .intro_menu li:nth-child(3) .menu_btn_li::after{content: ''; clear:both; display:inline-block; position: absolute; bottom:0; height:4px; background-color:#5AD3C0;}
+.intro_box > .intro_menu li:nth-child(1) .menu_btn_li::after,
+.intro_box > .intro_menu li:nth-child(3) .menu_btn_li::after{width:calc(100% - 80px)}
+.intro_box > .intro_menu li:nth-child(2) .menu_btn_li::after{width:calc(100% - 160px);}
+.intro_box > .intro_menu li:nth-child(1) .menu_btn_li::after{left:0;}
+.intro_box > .intro_menu li:nth-child(3) .menu_btn_li::after{right:0;}
+
+.intro_box > .intro_menu li .menu_btn_li .menu_btn{text-align: center;}
+.intro_box > .intro_menu li .menu_btn_li .menu_btn .menu_btn_img{display:flex; justify-content: center; align-items: center; height:330px;}
+.intro_box > .intro_menu li .menu_btn_li .menu_btn .menu_btn_img img{object-fit: contain;}
+.intro_box > .intro_menu li .menu_btn_li .menu_btn .menu_btn_text{font-size: 4rem; letter-spacing: -2px; color:#5AD3C0; padding-top: 70px;}
+
+.list_main{width:var(--width);height:var(--frame_height);box-sizing:border-box;}
+.list_main .list_area{height:100%;}
+.list_main .list_area .img_main{position:absolute;width:var(--width);height:1634px;}
+
+.list_main .list_bg{width:var(--width);height:var(--frame_height);}
+.list_main .list_bg img{width:100%; height:100%;}

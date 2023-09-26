@@ -1,0 +1,409 @@
+.list_main {
+	position: absolute;
+	z-index: 35;
+	width: 3840px;
+	height: var(--height);
+	box-sizing: border-box;
+}
+.list_main .list_area .img_main {
+	width: var(--width);
+	height: 1920px;
+}
+.notice_main {
+	position: absolute;
+	width: var(--width);
+	overflow: hidden;
+	height: var(--height);
+	background: #000000;
+}
+.notice_main .bg {
+	width: 100%;
+	display: block;
+}
+.notice_main .bg img {
+	width: 100%;
+	display: block;
+}
+
+.list_main .list_area .screen_txt {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: #ffffff;
+	font-size: 4.25rem;
+	background: rgba(17, 17, 17, 0.3);
+	width: 100%;
+	height: 230px;
+	z-index: 120000;
+}
+.list_main .list_area .screen_txt > img {
+	margin-right: 60px;
+}
+.sub_page_main .frame_info {
+	height: 100%;
+}
+
+.bottom_box {
+	display: flex;
+	height: 230px;
+	box-sizing: border-box;
+	width: 3840px;
+}
+
+.bottom_box .bottom_menu {
+	display: flex;
+	flex: 4;
+}
+.bottom_box .bottom_menu .bottom_btn_li {
+	float: left;
+	box-sizing: border-box;
+	width: calc(100% / 6);
+	height: 230px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.bottom_box .bottom_menu .bottom_btn_li .bottom_btn_text {
+	font-size: 2.5rem;
+	font-weight: 500;
+}
+.bottom_box .bottom_menu .bottom_btn_li img:nth-child(2) {
+	display: none;
+}
+.bottom_box .bottom_menu .bottom_btn_li .bottom_btn {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+.bottom_box .bottom_menu .bottom_btn_li .bottom_btn.active {
+	width: 100%;
+	height: 230px;
+	color: #ffffff;
+	background: #5ad3c0;
+}
+.bottom_box .bottom_menu .bottom_btn_li .bottom_btn.active img:nth-child(1) {
+	display: none;
+}
+.bottom_box .bottom_menu .bottom_btn_li .bottom_btn.active img:nth-child(2) {
+	display: inline-block;
+}
+
+.bottom_box .bottom_info {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex: 4;
+	gap: 120px;
+	padding-right:120px;
+}
+.bottom_box .bottom_info > div {
+	text-align: right;
+}
+.bottom_box .bottom_info > div .info_title {
+	color: #666;
+	font-size: 24px;
+}
+.bottom_box .bottom_info > div .info_tel {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.bottom_box .bottom_lang {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
+}
+.bottom_box .bottom_lang .lang_area {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 100%;
+	max-width: 320px;
+	box-sizing: border-box;
+}
+.bottom_box .bottom_lang .lang_area .lang_btn {
+	width: 50%;
+	margin: 0 0 0 0;
+}
+.bottom_box .bottom_lang .lang_area .lang_btn:nth-child(3) {
+	margin: 0 0 0 0;
+}
+.bottom_box .bottom_lang .lang_area .lang_btn .lang_txt {
+	height: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 1.85rem;
+	color: #919396;
+	background: #fff;
+	border: 2px solid #666;
+	box-sizing: border-box;
+	margin: -1px;
+}
+.bottom_box .bottom_lang .lang_area .lang_btn .lang_txt.active {
+	position: relative;
+	color: #5ad3c0;
+	border: 2px solid #5ad3c0;
+	font-weight: 500;
+}
+.btn_close {
+	position: absolute;
+	bottom: 0;
+	left: calc(100% + 50px);
+	width: 120px;
+	height: 120px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.floor_btn_close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 120px;
+	height: 120px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 날씨 팝업 */
+.popup_weather {
+	position: absolute;
+	z-index: 120000;
+	width: 100%;
+	height: var(--height);
+	top: 0;
+	left: 0;
+	background: rgba(17, 17, 17, 0.9);
+}
+.popup_weather .popup_base {
+	position: absolute;
+	z-index: 121000;
+	background: #fff;
+	margin: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 1400px;
+	height: 800px;
+}
+.popup_weather .popup_base .popup_box {
+	width: 100%;
+	height: 100%;
+	padding: 128px 150px 168px;
+	box-sizing: border-box;
+}
+.popup_weather .popup_base .popup_box .title {
+	color: #5ad3c0;
+	font-size: 50px;
+	font-weight: 500;
+	letter-spacing: -3.5px;
+	text-align: center;
+}
+.popup_weather .popup_base .popup_box .whather_box {
+	padding-top: 100px;
+	width: 100%;
+	padding-top: 100px;
+}
+
+.popup_weather .popup_base .popup_box .whather_box .way_box ul {
+	display: flex;
+	justify-content: center;
+	gap: 300px;
+}
+.popup_weather .popup_base .popup_box .whather_box .way_box ul li div img {
+	width: 250px;
+	height: 255px;
+	margin: 0 auto;
+}
+.popup_weather .popup_base .popup_box .whather_box .way_box ul li div span {
+	display: block;
+	font-size: 36px;
+	color: #5ad3c0;
+	text-align: center;
+	padding-top: 25px;
+	letter-spacing: -2px;
+	font-weight: 500;
+}
+/* 날씨 팝업 */
+
+/* 길찾기 팝업 */
+#wayFindPopup {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: var(--width);
+	height: var(--frame_height);
+	background: white;
+	z-index: 5000;
+}
+#wayFindPopup .popup_base,
+#wayFindPopup .popup_box,
+#wayFindPopup .list_container,
+#wayFindPopup .wayfind_list_area,
+#wayFindPopup #popup_wayfind_cover,
+#wayFindPopup .swiper-slide,
+#wayFindPopup .swiper-slide img {
+	height: 100%;
+}
+#wayFindPopup .swiper-slide {
+	text-align: center;
+}
+#popup_wayfind_cover {
+	padding-top: 400px;
+	height: calc(100% - 400px);
+	box-sizing: border-box;
+}
+#wayFindPopup .btn_close {
+	width: auto;
+	bottom: 70px;
+	left: auto;
+	right: 0;
+	z-index: 100;
+}
+#wayFindPopup .btn_close img {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+}
+#wayFindPopup .btn_close span {
+	display: inline-block;
+	font-size: 40px;
+	padding-left: 25px;
+}
+#wayFindPopup .wayfind-pagination {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	bottom: unset;
+	top: 140px !important;
+	left: auto !important;
+	margin: 0;
+	text-align: center;
+}
+#wayFindPopup .wayfind-pagination .swiper-pagination-bullet {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	align-items: flex-end;
+	margin: 0;
+	padding: 0;
+	border-radius: 0;
+	width: auto;
+	height: auto;
+	text-align: left;
+	line-height: 30px;
+	font-size: 12px;
+	color: #000;
+	opacity: 1;
+	background: none;
+	text-align: center;
+}
+#wayFindPopup .wayfind-pagination .swiper-pagination-bullet:not(:last-child) {
+	margin-right: 200px;
+}
+#wayFindPopup .wayfind-pagination .swiper-pagination-bullet:not(:last-child)::after {
+	content: "";
+	position: absolute;
+	display: inline-block;
+	left: calc(100% + 65px);
+	top: 50%;
+	transform: translateY(-50%);
+	width: 70px;
+	height: 70px;
+	background-image: url("/images/popup_wayfind_arrow.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+#wayFindPopup .wayfind-pagination .swiper-pagination-bullet-active {
+	color: #5ad3c0;
+}
+#wayFindPopup .wayfind-pagination .swiper-pagination-bullet .popup_way_title {
+	width:100%;
+	font-size: 100px;
+	line-height: 1;
+	padding-bottom: 15px;
+}
+#wayFindPopup .wayfind-pagination .swiper-pagination-bullet .popup_way_subtitle {
+	width:100%;
+	font-size: 36px;
+}
+.wayfind-next,
+.wayfind-prev {
+	position: absolute;
+	width: 50px;
+	height: 130px;
+	top: 50%;
+	transform: translateY(-50%);
+	background-size: 50px 130px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.wayfind-next {
+	background-image: url("/images/icon_arr_right.svg");
+	right: -100px;
+}
+.wayfind-prev {
+	background-image: url("/images/icon_arr_left.svg");
+	left: -100px;
+}
+.wayfind-next:after,
+.wayfind-prev:after {
+	font-size: 0;
+}
+
+.qr_container{position: absolute; bottom:200px; right:0; display:flex; align-items: flex-end; column-gap: 30px;}
+.qr_container > p{font-size:40px; letter-spacing: -3.5px; text-align: right;}
+.qr_container > #qrBox{width:250px; height:250px;}
+/* 길찾기 팝업 */
+
+
+#testPopup {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: var(--width);
+	height: var(--frame_height);
+	background: white;
+	z-index: 5000;
+}
+
+.popup_base {height:100%;}
+
+.popup_base.info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+.popup_base.info > p {
+	font-size: 60px;
+	letter-spacing: -1.2px;
+	margin-top: 120px;
+}
+
+.popup_base.info > .close_btn {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 120px;
+	height: 120px;
+	right: -140px;
+	bottom: 10px;
+}

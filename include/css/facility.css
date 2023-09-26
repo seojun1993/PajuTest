@@ -1,0 +1,45 @@
+.list_main{float:left;width:var(--width);height:calc((var(--frame_height)) - 300px);box-sizing:border-box;background: #fff;}
+.list_main .cover{vertical-align:top; height:1000px; overflow:hidden;}
+.list_main .cover .fac_list{position:relative;transition-duration:0.5s; height:auto;}
+.list_main .cover .fac_list > .facility_item{display:flex; flex-wrap: wrap; gap:80px;}
+
+.list_main .cover .fac_no_result{text-align:center;margin:450px 0 0 0;font-size:30px;color:#a6a6a6;}
+
+.list_main .cover .fac_list .info{display:flex; width:760px;height:280px;box-sizing:border-box; font-size:0; background:#F5F5F7;}
+.list_main .cover .fac_list .info .logo_main{display: flex; justify-content: center; align-items: center; width:300px; height:280px; border-right: 1px solid rgba(207,209,187, 0.5);}
+.list_main .cover .fac_list .info .logo_main .lang_name_thumb{width:110px;height:140px;display:flex;justify-content: center;align-items: center;font-size:18px;padding:0 20px;line-height:28px;text-align:center;background: #FFFFFF;word-break: break-all;}
+
+.list_main .cover .fac_list .info .logo_main img{width:100%; height:100%; display:block;}
+.list_main .cover .fac_list .info .desc_main{display:inline-block;vertical-align: top;background:#F5F5F7}
+.list_main .cover .fac_list .info .desc_main .desc_info{width:460px;height:280px; padding:30px 30px 30px 40px; box-sizing:border-box;}
+.list_main .cover .fac_list .info .desc_main .desc_info .desc_top{display:inline-block; width:100%; height:140px; box-sizing:border-box;overflow: hidden;}
+.list_main .cover .fac_list .info .desc_main .desc_info .desc_top .fac_name{font-size: 32px;}
+.list_main .cover .fac_list .info .desc_main .desc_info .desc_bottom{display:flex; align-items: center; justify-content: space-between; width:100%; height:80px; box-sizing:border-box;}
+.list_main .cover .fac_list .info .desc_main .desc_info .desc_bottom .left_area{display:inline-block;vertical-align:top;width:calc(100% - 80px); }
+.list_main .cover .fac_list .info .desc_main .desc_info .desc_bottom .floor_input{font-size: 28px; display:block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+
+.list_main .cover .fac_list .info .desc_main.list_main .event_paging .paging .desc_info .desc_bottom .right_area{display:inline-block;vertical-align:top;width:40px;height:40px;margin:10px 0 0 14px;}
+.list_main .cover .fac_list .info .desc_main .desc_info .desc_bottom .right_area img{width:80px;height:80px;}
+
+.popup_faci{position: absolute;z-index: 120000;width:var(--width);height:var(--height);top:0;left:0;background:rgba(17, 17, 17, 0.9);}
+.popup_faci .popup_base{position:absolute;z-index:121000;background:#fff; margin:auto; left:50%;top:50%; transform: translate(-50%, -50%); width:2400px;height:1200px;}
+.popup_faci .popup_base .popup_box{display:flex; align-items: center; width:100%;height:1200px;}
+.popup_faci .popup_base .popup_box .left_box{flex:1; height:100%;}
+.popup_faci .popup_base .popup_box .left_box{display:inline-block; height:100%;}
+.popup_faci .popup_base .popup_box .left_box .thumb{width:100%;height:100%; display:flex; justify-content:center; align-items: center;}
+.popup_faci .popup_base .popup_box .left_box .thumb img{width:100%; height:100%; object-fit: cover;}
+.popup_faci .popup_base .popup_box .left_box .lang_name_thumb{font-weight: 600;}
+
+.popup_faci .popup_base .popup_box .right_box{flex:1; height:100%;}
+.popup_faci .popup_base .popup_box .right_box .txt_box{width:100%; height:calc(100% - 120px); padding:100px; color:#111;position:relative;display:inline-block;box-sizing:border-box;}
+.popup_faci .popup_base .popup_box .right_box .txt_box .fac_name{text-align: left;font-size: 50px; font-weight: 500; padding-bottom: 70px;}
+.popup_faci .popup_base .popup_box .right_box .txt_box .fac_desc{font-size:30px; padding-bottom: 70px;}
+.popup_faci .popup_base .popup_box .right_box .txt_box ul li{display:flex;}
+.popup_faci .popup_base .popup_box .right_box .txt_box ul li:not(:last-child){padding-bottom: 36px;}
+.popup_faci .popup_base .popup_box .right_box .txt_box ul li > div{display:inline-block; font-size:2.14rem;}
+.popup_faci .popup_base .popup_box .right_box .txt_box ul li > div:nth-child(1){width:170px; font-weight: 300;}
+
+.popup_faci .popup_base .popup_box .right_box .way_box{height:120px; background:#5AD3C0;}
+.popup_faci .popup_base .popup_box .right_box .way_box .btn_wayfind{position: unset; width:100%; background:none; color:#fff; font-size:40px;}
+.popup_faci .popup_base .popup_box .right_box .way_box .btn_fac_wayfind{width:100%; display:flex; justify-content: center; align-items: center; height:120px; margin:0 auto; background:none; border: none; color:#fff; font-size: 40px ;}
+.popup_faci .popup_base .popup_box .right_box .way_box .btn_fac_wayfind .way_store_img{margin-right:40px;}
