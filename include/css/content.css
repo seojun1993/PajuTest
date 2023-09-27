@@ -1,0 +1,13 @@
+.intro .intro_bg{width:100%; padding: 80px 165px 60px; box-sizing: border-box;}
+.intro .intro_bg img{width:100%; display:block; }
+
+.intro .intro_txt{display: flex; align-items: center; flex-direction: column; float: right; width: 50%; padding-right: 60px;}
+.intro .intro_txt .txt_top{font-size: 60px; font-weight: bold;}
+.intro .intro_txt .txt_top > p{line-height: 69px;}
+.intro .intro_txt .txt_bot{font-size: 26px; padding-top: 30px; line-height: 45px;}
+.intro .intro_txt .txt_bot > p{line-height: 45px;}
+
+.intro .intro_txt .txt_touch{padding-top: 60px; display:flex; justify-content: center; align-items: center; }
+.intro .intro_txt .txt_touch .txt_touch_box{display:flex; align-items: center; gap:40px; padding: 30px 40px; background:#333437; border: 1px solid #707070; border-radius: 83px;}
+.intro .intro_txt .txt_touch .txt_touch_box img{display:inline-block;}
+.intro .intro_txt .txt_touch .txt_touch_box span{display:inline-block; font-size:33px; font-weight: bold;}

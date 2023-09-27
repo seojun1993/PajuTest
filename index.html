@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="include/css/reset.css">
+    <link rel="stylesheet" href="include/css/comm.css">
+    <link rel="stylesheet" href="include/css/component.css">
+    <link rel="stylesheet" href="include/css/content.css">
+
+    <script src="include/js/lib/jquery-3.7.0.js"></script>
+    <script src="include/js/lib/jquery.xml2json.js"></script>
+    <script src="include/js/swiper/swiper-bundle.min.js"></script>
+    <script src="include/js/header.js"></script>
+</head>
+<body>
+
+    <div id="wrap">
+        <header>
+            <div class="inner">
+                <div class="left">
+                    <div class="logo">
+                        <h2><img src="images/logo.svg" alt="Logo"></h2>
+                    </div>
+                </div>
+                <div class="right">
+                    <div id="nowDate"></div>
+                    <div id="nowWeather"></div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="intro" style="display:none">
+                <div class="intro_bg">
+                    <img src="images/intro/intro.png" alt="introImg">
+                </div>
+                <div class="intro_txt">
+                    <div class="txt_top">
+                        <p>파주시청 안내<br/>키오스크 입니다.</p>
+                    </div>
+                    <div class="txt_bot">
+                        <p>
+                            청각장애인을 위한 수어, 시각장애인을<br/>
+                            위한 점자와 음성을 제공합니다<br/>
+                            장애인 비장애인 누구나 이용하실 수<br/> 
+                            있습니다.
+                        </p>
+                    </div>
+                    <div class="txt_touch">
+                        <div class="txt_touch_box">
+                            <img src="images/ico_touch.svg" alt="touch">
+                            <span>
+                                안내를 원하시면<br/>
+                                화면을 터치해 주세요
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="choiceModal">
+                <div class="selectBtn">123</div>
+            </div>
+        </section>
+
+        <footer></footer>
+        
+        <div class="sign_character">
+            <div id="canvasContainer" class="inner">
+                <canvas id="index_signcanvas"></canvas>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module">
+        import WebGLPlayer from "./include/js/lib/WebGLPlayer.js";
+            window.webGLPlayer = new WebGLPlayer(document.getElementById("index_signcanvas"), 
+            {alpha: 0 }, "./include/js/lib");
+            webGLPlayer.playerInit('Eve', 'Eve_IFC_Mall',
+            (callback) => {console.log('WebGl Player Init : ', callback)});
+    </script>
+</body>
+</html>
