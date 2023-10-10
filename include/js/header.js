@@ -13,11 +13,17 @@ function nowWeather() {
         let Weather = data.weather[0].main;
 
         switch(Weather) {
+            case 'Clear' : 
+            Weather = `<span>맑음</span><img src="./images/weather/sunny.svg">`
+            break;
+
             case 'Clouds' : 
-            Weather = `<span>구름</span><img src="../../images/weather/cloudy.svg">`
+            Weather = `<span>구름</span><img src="./images/weather/cloudy.svg">`
+            break;
 
             case 'Mist' : 
-            Weather = `<span>구름</span><img src="../../images/weather/cloudy.svg">`
+            Weather = `<span>구름</span><img src="./images/weather/cloudy.svg">`
+            break;
             // 날씨케이스 추가 부분
         }
 

@@ -16,10 +16,14 @@ area , main/info , list , box
 :root{
     --width: 1920px;
     --height: 1080px;
+    --borderColor : #FFD91C;
+    --tabColor : #00A3B7;
+    --mainBtn : #4B4C56;
+    --subBtn : #676668;
 }
 
 /* 수어 */
-.sign_character{position: fixed; bottom:0; right:0; width:100%; z-index: 9999;}
+.sign_character{position: fixed; bottom:0; right:0; width:100%; z-index: 9999; pointer-events: none;}
 .sign_character .inner{width:50%; height:800px; box-sizing: border-box;}
 /* 수어 */
 

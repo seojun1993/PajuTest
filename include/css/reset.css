@@ -50,7 +50,7 @@ legend {border: 0; padding: 0;}
 li {list-style:none;}
 
 
-button, input[type=text],input[type=password], select, textarea {border-radius:0; vertical-align:middle; }
+button, input[type=text],input[type=password], select, textarea {background:none; border:none; border-radius:0; vertical-align:middle; }
 textarea {border:0 none; resize: none;}
 input:-moz-placeholder,textarea:-moz-placeholder {color: rgba(20, 26, 31, 0.2) !important; font-weight:400;}
 input::-moz-placeholder,textarea::-moz-placeholder {color: rgba(20, 26, 31, 0.2) !important; font-weight:400;}
