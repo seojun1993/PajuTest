@@ -1,60 +1,126 @@
 // 페이지 전환
 // 초기 세팅
-setUrl('INTRO')
+let swiper = null;
 
-async function setUrl(getUrl) {
-    const target = getUrl + '.html'; // 대상 페이지의 URL을 입력하세요.
+fetchAndInjectHTML('INTRO');
 
-    try {
-        const response = await fetch(target);
+function fetchAndInjectHTML(url, type) {
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
+    if (type !== 'popup') {
+        link = url + '.html';
+        fetch(link)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(htmlContent => {
+                const container = document.getElementById('div_main_container');
+                container.innerHTML = htmlContent;
 
-        const html = await response.text();
+                // 수어 감추는 페이지
+                if (url === 'GUIDE_01' || url === 'FLOOR') {
+                    document.querySelector('.sign_character').style.visibility = 'hidden';
+                } else {
+                    document.querySelector('.sign_character').style.visibility = 'visible';
+                }
+                // 수어 감추는 페이지
 
-        const divContainer = document.getElementById('div_main_container');
-        divContainer.innerHTML = html;
+                // 푸터 감추는 페이지
+                if (url === 'INTRO' || url === 'USER_CHOICE' || url === 'GUIDE_01') {
+                    document.querySelector('footer').style.display = 'none';
+                } else {
+                    document.querySelector('footer').style.display = 'block';
+                }
+                // 푸터 감추는 페이지
 
-        changeUrl();
-        swiperContent(getUrl)
+                // HTML 파일에 포함된 스크립트 실행
+                const scripts = container.querySelectorAll('script');
+                scripts.forEach(script => {
+                    const newScript = document.createElement('script');
+                    newScript.type = 'text/javascript';
+                    newScript.innerHTML = script.innerHTML;
+                    document.body.appendChild(newScript);
+                });
 
-    } catch (error) {
-        console.error(error);
+                getUrl();
+
+                if (swiper != null) swiper.destroy();
+                swiperContent(url);
+
+            })
+            .catch(error => console.error('Error fetching or injecting HTML:', error));
+    }else if(type === 'popup'){
+        document.getElementById('div_pop').style.display = 'block';
     }
 }
 // 페이지 전환
 
-function changeUrl() {
+function getUrl() {
     let urlBtn = document.querySelectorAll('.btn_url');
 
     urlBtn.forEach((item) => {
         item.addEventListener('click', () => {
             let getUrl = item.getAttribute('data-link');
-
-            setUrl(getUrl)
-
+            fetchAndInjectHTML(getUrl);
         })
     })
 }
 
-function swiperContent(id){
-
+function swiperContent(id) {
     let target = id.toLocaleLowerCase().replace(/_/g, '') + '_swiper';
-    console.log(target);
+    let renderBulletFn;
 
-    var swiper = new Swiper(`.${target}`, {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
+    if (!id) {
+        return;
+    } else {
+        if (id === 'GUIDE_01') {
+            let guideArr = ['점자패드 사용 안내', '키패드 사용 안내']
+            renderBulletFn = function (index, className) {
+                return `
+                        <div class="page ${className}">
+                            <span class="num">0${index + 1}</span>
+                            <span class="txt">${guideArr[index]}</span>
+                        </div>`
+            }
+
+            document.querySelector('.swiper-pagination').classList.add('custom_pagination')
+        } else {
+            renderBulletFn = false;
+        }
+
+        let swiper = new Swiper(`.${target}`, {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                renderBullet: renderBulletFn,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    }
+}
+
+function getPopup(id) {
+
+    let popBtn = document.querySelectorAll('.btn_pop');
+
+    popBtn.forEach((item) => {
+        item.addEventListener('click', () => {
+            let getUrl = item.getAttribute('data-type');
+            fetchAndInjectHTML(getUrl);
+        })
+    })
+
+    switch (id) {
+        case 'FLOOR':
+            alert(1);
+
+            break;
+    }
 }

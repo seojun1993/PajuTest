@@ -1,48 +1,48 @@
-<div id="choiceModal">
-    <div class="choice_wrap">
-    <ul>
-        <li class="shadow01 btn01">
-            <div class="num">
-                <span>1</span>
-            </div>
-            <button>
-                <div class="choice_txt">
-                    <p>일반 사용</p>
+<div class="choice_wrap">
+    <div class="select_wrap">
+        <ul>
+            <li class="shadow01 btn01">
+                <div class="num">
+                    <span>1</span>
                 </div>
-                <div class="choice_img">
-                    <img src="images/intro/touch.svg" alt="일반 사용">
+                <button  class="btn_url" data-link="FLOOR" data-type="page">
+                    <div class="choice_txt">
+                        <p>일반 사용</p>
+                    </div>
+                    <div class="choice_img">
+                        <img src="images/intro/touch.svg" alt="일반 사용">
+                    </div>
+                </button>
+            </li>
+            <li class="shadow01 btn01">
+                <div class="num">
+                    <span>2</span>
                 </div>
-            </button>
-        </li>
-        <li class="shadow01 btn01">
-            <div class="num">
-                <span>2</span>
-            </div>
-            <button>
-                <div class="choice_txt">
-                    <p>음성 사용</p>
-                    <span></span>
+                <button class="btn_url" >
+                    <div class="choice_txt">
+                        <p>음성 사용</p>
+                        <span></span>
+                    </div>
+                    <div class="choice_img">
+                        <img src="images/intro/voice.svg" alt="시각장애인">
+                    </div>
+                </button>
+            </li>
+            <li class="shadow01 btn01">
+                <div class="num">
+                    <span>3</span>
                 </div>
-                <div class="choice_img">
-                    <img src="images/intro/voice.svg" alt="시각장애인">
-                </div>
-            </button>
-        </li>
-        <li class="shadow01 btn01">
-            <div class="num">
-                <span>3</span>
-            </div>
-            <button>
-                <div class="choice_txt">
-                    <p>수어 사용</p>
-                    <span>청각장애인</span>
-                </div>
-                <div class="choice_img">
-                    <img src="images/intro/sign.svg" alt="청각장애인">
-                </div>
-            </button>
-        </li>
-    </ul>    
+                <button class="btn_url" >
+                    <div class="choice_txt">
+                        <p>수어 사용</p>
+                        <span>청각장애인</span>
+                    </div>
+                    <div class="choice_img">
+                        <img src="images/intro/sign.svg" alt="청각장애인">
+                    </div>
+                </button>
+            </li>
+        </ul>    
     </div>
 
     <div class="guide_wrap">
@@ -54,11 +54,78 @@
                 <p>키오스크<br/>낮게 사용</p>
             </li>
             <li>
-                <button class="btn_url btn01" data-link="GUIDE_01">
+                <button class="btn_url btn01" data-link="GUIDE_01" data-type="page">
                     <img src="images/icon/guide.svg" alt="사용안내">
                 </button>
                 <p>사용안내</p>
             </li>
         </ul>
+    </div>
+
+    <div class="action_wrap small">
+        <div class="btn_container">
+            <div class="control_inner">
+                <h3>음량조절</h3>
+                <div class="btn_wrap">
+                    <button class="btn minus btn_tab control" data-text="음량 줄임">
+                        <img src="images/commons/plus.svg" alt="음량키우기" />
+                    </button>
+                    <button class="btn plus btn_tab control" data-text="음량 올림">
+                        <img src="images/commons/miuus.svg" alt="음량줄이기" />
+                    </button>
+                </div>
+                <!-- control_pop -->
+                <div class="control_pop view_pop_01">
+                    <div class="volumn_wrap">
+                        <h3>음량조절</h3>
+                        <div class="inner">
+                            <span>-</span>
+                            <!-- 음량단계 1~10 class volumn_01 ~ volumn_10 -->
+                            <ul id="ul_volume">
+                                <li data-volume="1">1</li>
+                                <li data-volume="2">2</li>
+                                <li data-volume="3">3</li>
+                                <li data-volume="4" class="active">4</li>
+                                <li data-volume="5">5</li>
+                                <li data-volume="6">6</li>
+                                <li data-volume="7">7</li>
+                                <li data-volume="8">8</li>
+                                <li data-volume="9">9</li>
+                                <li data-volume="10">10</li>
+                            </ul>
+                            <span>+</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- //control_pop -->
+            </div>
+
+            <div class="control_inner">
+                <h3>음량속도</h3>
+                <div class="btn_wrap">
+                    <button class="btn minus btn_tab control left" data-text="음성속도 느리게">
+                        <img src="images/commons/plus.svg" alt="음량속도빠르게" />
+                    </button>
+                    <button class="btn plus btn_tab control right" data-text="음성속도 빠르게">
+                        <img src="images/commons/miuus.svg" alt="음량속도느리게" />
+                    </button>
+                </div>
+                <!-- control_pop -->
+                <div class="control_pop view_pop_02">
+                    <div class="speed_wrap">
+                        <h3>음성속도</h3>
+                        <div class="inner">
+                            <!-- 속도 1~3 class voicespeed_1x ~ voicespeed_3x -->
+                            <ul class="voicespeed_1x" id="ul_audiospeed">
+                                <li data-speed="1">보통</li>
+                                <li data-speed="2">2X</li>
+                                <li data-speed="4">4X</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- //control_pop -->
+            </div>
+        </div>
     </div>
 </div>
