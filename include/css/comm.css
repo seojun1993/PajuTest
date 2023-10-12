@@ -23,7 +23,7 @@ area , main/info , list , box
 }
 
 /* 수어 */
-.sign_character{position: fixed; bottom:0; right:0; width:100%; z-index: 9999; pointer-events: none;}
+.sign_character{position: fixed; bottom:0; right:0; width:100%; z-index: 5000; pointer-events: none;}
 .sign_character .inner{width:50%; height:800px; box-sizing: border-box;}
 /* 수어 */
 

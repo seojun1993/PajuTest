@@ -2,11 +2,13 @@
 // 초기 세팅
 let swiper = null;
 
-fetchAndInjectHTML('INTRO');
+fetchAndInjectHTML('ORGANIZATION');
 
-function fetchAndInjectHTML(url, type) {
+function fetchAndInjectPop(){
 
-    if (type !== 'popup') {
+}
+
+function fetchAndInjectHTML(url) {
         link = url + '.html';
         fetch(link)
             .then(response => {
@@ -45,17 +47,14 @@ function fetchAndInjectHTML(url, type) {
                 });
 
                 getUrl();
+                getPopup();
 
                 if (swiper != null) swiper.destroy();
                 swiperContent(url);
 
             })
             .catch(error => console.error('Error fetching or injecting HTML:', error));
-    }else if(type === 'popup'){
-        document.getElementById('div_pop').style.display = 'block';
-    }
 }
-// 페이지 전환
 
 function getUrl() {
     let urlBtn = document.querySelectorAll('.btn_url');
@@ -67,6 +66,7 @@ function getUrl() {
         })
     })
 }
+// 페이지 전환
 
 function swiperContent(id) {
     let target = id.toLocaleLowerCase().replace(/_/g, '') + '_swiper';
@@ -106,21 +106,29 @@ function swiperContent(id) {
     }
 }
 
-function getPopup(id) {
-
+function getPopup() {
+    let popBox = document.getElementById('div_pop');
     let popBtn = document.querySelectorAll('.btn_pop');
 
     popBtn.forEach((item) => {
-        item.addEventListener('click', () => {
-            let getUrl = item.getAttribute('data-type');
-            fetchAndInjectHTML(getUrl);
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            popBox.style.display = 'block';
+
+            popBox.querySelector('.location').addEventListener('click', () => {
+                document.querySelector('.pop_table').style.display = 'none';
+                document.querySelector('.pop_location').style.display = 'block';
+            })
+
+            closePopup();
         })
     })
+}
 
-    switch (id) {
-        case 'FLOOR':
-            alert(1);
-
-            break;
-    }
+function closePopup(){
+    document.querySelectorAll('.pop_action .close').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            document.getElementById('div_pop').style.display = 'none';
+        })
+    })
 }
