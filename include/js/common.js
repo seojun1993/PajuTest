@@ -129,6 +129,11 @@ function closePopup(){
     document.querySelectorAll('.pop_action .close').forEach((btn) => {
         btn.addEventListener('click', () => {
             document.getElementById('div_pop').style.display = 'none';
+
+            document.querySelectorAll('.pop_bg > div').forEach((div) => {
+                div.style.display = 'none';
+            })
+
         })
     })
 }

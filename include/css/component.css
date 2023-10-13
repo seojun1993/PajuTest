@@ -1,3 +1,6 @@
+.tab_title{position: absolute; top:185px; left:60px; font-size: 4.2rem; padding-left: 20px; z-index: 50;}
+.tab_title::before{content: ''; display:inline-block; position: absolute; left:0; top:50%; transform: translateY(-50%); width:8px; height:40px; background:#fff;}
+
 .custom_pagination{position: relative !important; display:flex; justify-content: center; gap:50px; padding:55px 0 120px 0;}
 .custom_pagination .page{font-size: 3rem; width:auto; height: auto; background: none; border-radius: unset;}
 .custom_pagination .page{display:flex; align-items: center; gap:18px}
