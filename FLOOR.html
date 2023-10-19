@@ -49,10 +49,10 @@
     <div class="tab_wrap">
         <div class="tab_result_wrap">
             <div class="tab_all_result">
-                    <div class="touch_guide">
-                        <img src="images/icon/swiper.svg" alt="img">
-                        <span>위아래 스크롤 하시면<br/>전체내용을 확인하실 수 있습니다.</span>
-                    </div>
+                <div class="touch_guide">
+                    <img src="images/icon/swiper.svg" alt="img">
+                    <span>위아래 스크롤 하시면<br />전체내용을 확인하실 수 있습니다.</span>
+                </div>
                 <dl>
                     <dt>
                         <img src="images/icon/company.svg" alt="img">
@@ -383,46 +383,47 @@
 </div>
 
 <script>
-    let subBtn = document.querySelectorAll('#lnb ul li');
-    let mapBtn = document.querySelectorAll('#location button');
+let subBtn = document.querySelectorAll('#lnb ul li');
+let mapBtn = document.querySelectorAll('#location button');
 
-        subBtn.forEach((list, idx) => {
-            list.addEventListener('click', (e) => {
-                e.preventDefault();
-                
-                for(let i = 0; i < subBtn.length; i++){
-                    subBtn[i].querySelector('button').classList.remove('active');
-                }
+subBtn.forEach((list, idx) => {
+    list.addEventListener('click', (e) => {
+        e.preventDefault();
 
-                list.querySelector('button').classList.add('active');
-                
-                let location = list.querySelector('button').getAttribute('data-location');
+        for (let i = 0; i < subBtn.length; i++) {
+            subBtn[i].querySelector('button').classList.remove('active');
+        }
 
-                if (location === 'all') {
-                    document.querySelector('.tab_all_result').style.display = 'flex';
-                    document.querySelector('.tab_detail_result').style.display = 'none';
+        list.querySelector('button').classList.add('active');
 
-                    setTimeout(() => {
-                        document.querySelector('.touch_guide').style.opacity = 0;
-                    }, 5000)
+        let location = list.querySelector('button').getAttribute('data-location');
 
-                } else {
-                    document.querySelector('.tab_all_result').style.display = 'none';
-                    document.querySelector('.tab_detail_result').style.display = 'flex';
-                    document.querySelector('.touch_guide').style.opacity = 1;
+        if (location === 'all') {
+            document.querySelector('.tab_all_result').style.display = 'flex';
+            document.querySelector('.tab_detail_result').style.display = 'none';
 
-                    document.getElementById('location').querySelectorAll('button').forEach((mapBtn) => {
-                        mapBtn.classList.remove('active');
+            setTimeout(() => {
+                document.querySelector('.touch_guide').style.opacity = 0;
+            }, 5000)
 
-                        if (location === mapBtn.getAttribute('data-location')) {
-                            mapBtn.classList.add('active');
+        } else {
+            document.querySelector('.tab_all_result').style.display = 'none';
+            document.querySelector('.tab_detail_result').style.display = 'flex';
+            document.querySelector('.touch_guide').style.opacity = 1;
+
+            document.getElementById('location').querySelectorAll('button').forEach((mapBtn) => {
+                mapBtn.classList.remove('active');
+
+                if (location === mapBtn.getAttribute('data-location')) {
+                    mapBtn.classList.add('active');
 
 
-                            // 데이터 교체 자리
-                            // 데이터 교체 자리
-                        }
-                    })
+                    // 데이터 교체 자리
+                    // 데이터 교체 자리
                 }
             })
-        })
+        }
+    })
+})
+
 </script>

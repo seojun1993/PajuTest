@@ -22,6 +22,8 @@ area , main/info , list , box
     --subBtn : #676668;
 }
 
+#div_main_container{height: 1555px;}
+
 /* 수어 */
 .sign_character{position: fixed; bottom:0; right:0; width:100%; z-index: 5000; pointer-events: none;}
 .sign_character .inner{width:50%; height:800px; box-sizing: border-box;}

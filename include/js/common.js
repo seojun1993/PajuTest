@@ -2,58 +2,55 @@
 // 초기 세팅
 let swiper = null;
 
-fetchAndInjectHTML('ORGANIZATION');
-
-function fetchAndInjectPop(){
-
-}
+fetchAndInjectHTML('GUIDE_01');
 
 function fetchAndInjectHTML(url) {
-        link = url + '.html';
-        fetch(link)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(htmlContent => {
-                const container = document.getElementById('div_main_container');
-                container.innerHTML = htmlContent;
+    link = url + '.html';
+    fetch(link)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(htmlContent => {
+            const container = document.getElementById('div_main_container');
 
-                // 수어 감추는 페이지
-                if (url === 'GUIDE_01' || url === 'FLOOR') {
-                    document.querySelector('.sign_character').style.visibility = 'hidden';
-                } else {
-                    document.querySelector('.sign_character').style.visibility = 'visible';
-                }
-                // 수어 감추는 페이지
+            container.innerHTML = htmlContent;
 
-                // 푸터 감추는 페이지
-                if (url === 'INTRO' || url === 'USER_CHOICE' || url === 'GUIDE_01') {
-                    document.querySelector('footer').style.display = 'none';
-                } else {
-                    document.querySelector('footer').style.display = 'block';
-                }
-                // 푸터 감추는 페이지
+            // 수어 감추는 페이지
+            if (url === 'GUIDE_01' || url === 'FLOOR') {
+                document.querySelector('.sign_character').style.visibility = 'hidden';
+            } else {
+                document.querySelector('.sign_character').style.visibility = 'visible';
+            }
+            // 수어 감추는 페이지
 
-                // HTML 파일에 포함된 스크립트 실행
-                const scripts = container.querySelectorAll('script');
-                scripts.forEach(script => {
-                    const newScript = document.createElement('script');
-                    newScript.type = 'text/javascript';
-                    newScript.innerHTML = script.innerHTML;
-                    document.body.appendChild(newScript);
-                });
+            // 푸터 감추는 페이지
+            if (url === 'INTRO' || url === 'USER_CHOICE' || url === 'GUIDE_01') {
+                document.querySelector('footer').style.display = 'none';
+            } else {
+                document.querySelector('footer').style.display = 'block';
+            }
+            // 푸터 감추는 페이지
 
-                getUrl();
-                getPopup();
+            // HTML 파일에 포함된 스크립트 실행
+            scripts = container.querySelectorAll('script');
+            scripts.forEach(script => {
+                const newScript = document.createElement('script');
+                newScript.type = 'text/javascript';
+                newScript.innerHTML = script.innerHTML;
+                container.appendChild(newScript);
+            });
 
-                if (swiper != null) swiper.destroy();
-                swiperContent(url);
+            getUrl();
+            getPopup();
 
-            })
-            .catch(error => console.error('Error fetching or injecting HTML:', error));
+            if (swiper != null) swiper.destroy();
+            swiperContent(url);
+
+        })
+        .catch(error => console.error('Error fetching or injecting HTML:', error));
 }
 
 function getUrl() {
@@ -61,6 +58,7 @@ function getUrl() {
 
     urlBtn.forEach((item) => {
         item.addEventListener('click', () => {
+
             let getUrl = item.getAttribute('data-link');
             fetchAndInjectHTML(getUrl);
         })
@@ -106,6 +104,14 @@ function swiperContent(id) {
     }
 }
 
+function gnbActive(btn) {
+    btn.parentNode.parentNode.querySelectorAll('li').forEach((list) => {
+        list.querySelector('button').classList.remove('active');
+    });
+
+    btn.classList.add('active');
+}
+
 function getPopup() {
     let popBox = document.getElementById('div_pop');
     let popBtn = document.querySelectorAll('.btn_pop');
@@ -114,6 +120,7 @@ function getPopup() {
         item.addEventListener('click', (e) => {
             e.preventDefault();
             popBox.style.display = 'block';
+            document.querySelector('.pop_table').style.display = 'block';
 
             popBox.querySelector('.location').addEventListener('click', () => {
                 document.querySelector('.pop_table').style.display = 'none';
@@ -125,7 +132,7 @@ function getPopup() {
     })
 }
 
-function closePopup(){
+function closePopup() {
     document.querySelectorAll('.pop_action .close').forEach((btn) => {
         btn.addEventListener('click', () => {
             document.getElementById('div_pop').style.display = 'none';

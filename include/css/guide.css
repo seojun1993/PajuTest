@@ -1,0 +1,13 @@
+/* 사용안내 */
+.pad_wrap .pad_container{padding-top: 400px;}
+.pad_wrap .pad_container .txt_box{text-align: center; padding-bottom: 40px;}
+.pad_wrap .pad_container .txt_box p{font-size: 3rem; line-height: 4.8rem;}
+.pad_wrap .pad_container .img_box img{display:block; width:auto;  max-height: 515px; margin: 0 auto;}
+.pad_wrap .pad_container .swiper-button-next{right:30px;}
+.pad_wrap .pad_container .swiper-button-prev{left:30px;}
+.pad_wrap .pad_container .swiper-button-next, 
+.pad_wrap .pad_container .swiper-button-prev{color:#fff; margin:0; transform: translateY(calc(-50% - 46px));}
+.pad_wrap .pad_container .swiper-button-next:after, 
+.pad_wrap .pad_container .swiper-button-prev:after{font-size: 60px;}
+.pad_wrap .pad_container .swiper-button-disabled{opacity: 0 !important;}
+/* 사용안내 */

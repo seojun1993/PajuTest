@@ -1,0 +1,16 @@
+/* INTRO */
+.intro_wrap{display:flex; flex-direction: column; align-items: flex-end; height: 100vh;}
+.intro_wrap .intro_bg{width:100%; padding: 80px 165px 60px; box-sizing: border-box;}
+.intro_wrap .intro_bg img{display:block; width:auto; max-height: 1055px;}
+
+.intro_wrap .intro_txt{display: flex; align-items: center; flex-direction: column; width: 50%; padding-right: 60px;}
+.intro_wrap .intro_txt .txt_top{font-size: 6rem; font-weight: bold;}
+.intro_wrap .intro_txt .txt_top > p{line-height: 6.9rem;}
+.intro_wrap .intro_txt .txt_bot{font-size: 2.6rem; padding-top: 30px; line-height: 4.5rem;}
+.intro_wrap .intro_txt .txt_bot > p{line-height: 4.5rem}
+
+.intro_wrap .intro_txt .txt_touch{padding-top: 60px; display:flex; justify-content: center; align-items: center; }
+.intro_wrap .intro_txt .txt_touch .txt_touch_box{display:flex; align-items: center; gap:40px; padding: 30px 40px; background:#333437; border: 1px solid #707070; border-radius: 83px;}
+.intro_wrap .intro_txt .txt_touch .txt_touch_box img{display:inline-block;}
+.intro_wrap .intro_txt .txt_touch .txt_touch_box span{display:inline-block; font-size:33px; font-weight: bold;}
+/* INTRO */

@@ -10,12 +10,22 @@
     <link rel="stylesheet" href="include/css/reset.css">
     <link rel="stylesheet" href="include/css/comm.css">
     <link rel="stylesheet" href="include/css/component.css">
-    <link rel="stylesheet" href="include/css/content.css">
     <link rel="stylesheet" href="include/css/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="include/css/popup.css">
+    <link rel="stylesheet" href="include/css/intro.css">
+    <link rel="stylesheet" href="include/css/user_choice.css">
+    <link rel="stylesheet" href="include/css/guide.css">
+    <link rel="stylesheet" href="include/css/floor.css">
+    <link rel="stylesheet" href="include/css/organization.css">
+    <link rel="stylesheet" href="include/css/park.css">
+
+    <script src="include/js/lib/jquery-3.7.0.js"></script>
+    <script src="include/js/lib/jquery.xml2json.js"></script>
+    <script src="include/js/header.js"></script>
+    <script src="include/js/common.js"></script>
 </head>
 
 <body>
-
     <div id="wrap">
         <header>
             <div class="inner">
@@ -166,10 +176,10 @@
             <div class="tab_main_wrap">
                 <nav id="gnb">
                     <ul>
-                        <li><button class="active">청사안내</button></li>
-                        <li><button>조직도</button></li>
-                        <li><button>주차안내</button></li>
-                        <li><button>이달의<br />문화행사</button></li>
+                        <li><button class="btn_url active" data-link="FLOOR" onclick="gnbActive(this)">청사안내</button></li>
+                        <li><button class="btn_url" data-link="ORGANIZATION" onclick="gnbActive(this)">조직도</button></li>
+                        <li><button class="btn_url" data-link="PARK" onclick="gnbActive(this)">주차안내</button></li>
+                        <li><button class="btn_url" data-link="CULTURE" onclick="gnbActive(this)">이달의<br />문화행사</button></li>
                     </ul>
                 </nav>
             </div>
@@ -271,11 +281,6 @@
             </div>
         </div>
     </div>
-
-    <script src="include/js/lib/jquery-3.7.0.js"></script>
-    <script src="include/js/lib/jquery.xml2json.js"></script>
-    <script src="include/js/header.js"></script>
-    <script src="include/js/common.js"></script>
 
     <script type="module">
         import WebGLPlayer from "./include/js/lib/WebGLPlayer.js";
