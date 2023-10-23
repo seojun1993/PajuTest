@@ -18,11 +18,14 @@
     <link rel="stylesheet" href="include/css/floor.css">
     <link rel="stylesheet" href="include/css/organization.css">
     <link rel="stylesheet" href="include/css/park.css">
+    <link rel="stylesheet" href="include/css/culture.css">
 
     <script src="include/js/lib/jquery-3.7.0.js"></script>
     <script src="include/js/lib/jquery.xml2json.js"></script>
     <script src="include/js/header.js"></script>
     <script src="include/js/common.js"></script>
+
+    <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=pbzx0AUEr6Phtgodg8Ht56gIAUEhJczUgS7iUFpG"></script>
 </head>
 
 <body>
@@ -188,7 +191,7 @@
                     <div class="con_L">
                         <div class="control_inner">
                             <div class="btn_wrap">
-                                <button class="btn_url btn home btn_tab control" data-link="USER_CHOICE" data-text="처음으로" data-type="page">
+                                <button class="btn_url btn home btn_tab control" data-link="USER_CHOICE" data-text="처음으로">
                                     <img src="images/commons/home.svg" alt="처음으로"/>
                                 </button>
                             </div>
@@ -275,7 +278,7 @@
             </div>
         </footer>
 
-        <div class="sign_character" style="display:none;">
+        <div class="sign_character">
             <div id="canvasContainer" class="inner">
                 <canvas id="index_signcanvas"></canvas>
             </div>
@@ -291,5 +294,18 @@
         </script>
 
     <script src="include/js/swiper/swiper-bundle.min.js"></script>
+
+    <!-- <script>
+        let map;
+            function initMap() {
+            var mapOptions = {
+                center: new naver.maps.LatLng(37.5666102, 126.9783881), // 지도 중심 좌표 설정
+                zoom: 10 // 지도 확대 레벨 설정
+            };
+            map = new naver.maps.Map('map', mapOptions);
+        }
+    
+        initMap();
+    </script> -->
 </body>
 </html>

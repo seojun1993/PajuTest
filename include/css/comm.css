@@ -22,11 +22,12 @@ area , main/info , list , box
     --subBtn : #676668;
 }
 
-#div_main_container{height: 1555px;}
+#wrap{height:100%;}
+#div_main_container{height: 100%;}
 
 /* 수어 */
-.sign_character{position: fixed; bottom:0; right:0; width:100%; z-index: 5000; pointer-events: none;}
-.sign_character .inner{width:50%; height:800px; box-sizing: border-box;}
+.sign_character{display:none; position: fixed; bottom:0; right:0; width:100%; z-index: 5000; pointer-events: none;}
+.sign_character .inner{width:50%; height:800px;}
 /* 수어 */
 
 /* @font-face{
@@ -35,19 +36,22 @@ area , main/info , list , box
     font-weight:700; */
 
 header{position: absolute; top:0; left:0; right:0;}
-header .inner{width:100%; height:95px; display:flex; justify-content: space-between; align-items: center; background: #fff; padding:0 36px; box-sizing: border-box; font-size: 4rem;}
+header .inner{width:100%; height:95px; display:flex; justify-content: space-between; align-items: center; background: #fff; padding:0 36px; font-size: 4rem;}
 header .inner .left .logo img{width:100%; display:block;}
 header .inner .right{display:flex; column-gap: 40px; font-weight: bold;}
 header .inner .right > div{display:flex; justify-content: space-between; align-items: center;}
 header .inner .right #nowWeather{gap:10px;}
 
-section{color:#fff; padding-top: 95px;}
+section{height:100%; color:#fff; padding-top: 95px;}
 
 /* FOOTER */
+footer{position: absolute; bottom:0; left:0; right:0;}
 .tab_main_wrap #gnb{height:170px;}
 .tab_main_wrap #gnb ul{display:flex; gap:3px;}
 .tab_main_wrap #gnb ul li{width:25%;}
-.tab_main_wrap #gnb ul li button{width:100%; display:flex; justify-content: center; align-items: center; height:170px; font-size: 4rem; background: #4B4C56; color:#fff; font-weight: bold; box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.16);}
+.tab_main_wrap #gnb ul li button{width:100%; display:flex; justify-content: center; align-items: center; height:170px; font-size: 4rem; background: #4B4C56; color:#fff; font-weight: bold; 
+    box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.16);
+}
 .tab_main_wrap #gnb ul li button.active{position: relative; background:#fff; color:#313131;}
 .tab_main_wrap #gnb ul li button.active::before{content: ''; clear:both; display:block; position: absolute; top:0; left:0; width:100%; height:15px; background:#00A3B7;}
 footer .action_wrap{height:100px; display:flex; align-items: center;}

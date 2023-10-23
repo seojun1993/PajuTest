@@ -1,19 +1,20 @@
-.tab_title{position: absolute; top:185px; left:60px; font-size: 4.2rem; padding-left: 20px; z-index: 50;}
+li .num{position: absolute; top:0; left:0; z-index: 10;}
+li .num span{display:flex; justify-content: center; align-items: center; width:60px; height:60px; background:#171717; font-size: 3.1rem;}
+
+.tab_title{position: absolute; top:185px; left:60px; font-size: 4.2rem; font-weight: bold; padding-left: 20px; z-index: 50;}
 .tab_title::before{content: ''; display:inline-block; position: absolute; left:0; top:50%; transform: translateY(-50%); width:8px; height:40px; background:#fff;}
 
-.custom_pagination{position: relative !important; display:flex; justify-content: center; gap:50px; padding:55px 0 120px 0;}
-.custom_pagination .page{font-size: 3rem; width:auto; height: auto; background: none; border-radius: unset;}
-.custom_pagination .page{display:flex; align-items: center; gap:18px}
-.custom_pagination .page .num{font-weight: 600; width:54px; height: 54px; line-height: 48px; background:#585858; border-radius: 50%;}
-.custom_pagination .page.swiper-pagination-bullet-active .num{background:#04ACEA;}
-.custom_pagination .page.active .txt{color:red;}
-
+/* 공용 이미지 및 제목 */
 .control_inner {position: relative; text-align: center;}
 .control_inner h3 {color: #fff; transition: all 1s ease; font-weight: bold;}
 .control_inner .btn_wrap {display: flex; gap: 10px;}
 
-.control_inner .btn_wrap .btn {display: flex; border-radius: 18px 6px 6px 18px; background: #4b4c56; justify-content: center; align-items: center; transition: all 0.1s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.16), inset 0 -1px 1px rgba(0, 0, 0, 0.3);}
-.control_inner .btn_wrap .btn:active {transform: translateY(3%); background: #444550; animation-fill-mode: both; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.16), inset 0 -1px 1px rgba(0, 0, 0, 0.3);}
+.control_inner .btn_wrap .btn {display: flex; border-radius: 18px 6px 6px 18px; background: #4b4c56; justify-content: center; align-items: center; transition: all 0.1s ease; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.16), inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+}
+.control_inner .btn_wrap .btn:active {transform: translateY(3%); background: #444550; animation-fill-mode: both; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.16), inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+}
 
 .control_inner .btn_wrap .btn.minus {border-radius: 18px 6px 6px 18px;}
 .control_inner .btn_wrap .btn.plus {border-radius: 6px 18px 18px 6px;}
@@ -31,6 +32,7 @@
 .small .control_inner .btn_wrap .btn{width: 67px; height: 67px; }
 .small .control_inner .btn_wrap .btn.plus img,
 .small .control_inner .btn_wrap .btn.minus img {width: 29px; height: 29px; padding-bottom: 2px;}
+/* 공용 이미지 및 제목 */
 
 .main .btn_container{width:100%; display:flex; justify-content: space-between; padding:0 20px;}
 .main .btn_container > div{display:flex;}
@@ -71,10 +73,7 @@
 .speed_wrap .inner ul li::before {display: block; content: ''; background: #cfcfcf; width: 10px; height: 10px; border-radius: 50%; position: absolute; left: 50%; transform: translateX(-50%); top: -13px;}
 .speed_wrap .inner ul li.active::before {background: #04acea; width: 18px; height: 18px; top: -17px;}
 
-.link_container button{display:flex; justify-content: center; align-items: center; width:405px; height:175px; background: rgba(75, 76, 86, 1); border-radius: 18px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 3px 1px rgba(255, 255, 255, 0.16), inset 0 -3px 1px rgba(0, 0, 0, 0.3);}
+.link_container button{display:flex; justify-content: center; align-items: center; width:405px; height:175px; background: rgba(75, 76, 86, 1); border-radius: 18px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 3px 1px rgba(255, 255, 255, 0.16), inset 0 -3px 1px rgba(0, 0, 0, 0.3);
+}
 .link_container button h3{font-size: 4.5rem; font-weight: bold; color:#fff; padding-left: 30px;}
-
-.btn01 {background: #333437; border: 2px solid #545454;}
-
-.shadow01 {box-shadow: -20px 10px 30px rgba(0, 0, 0, 0.6);}
-.shadow02 {box-shadow: -20px 50px 30px rgba(28, 28, 28, 1);}

@@ -1,6 +1,6 @@
 /* INTRO */
 .intro_wrap{display:flex; flex-direction: column; align-items: flex-end; height: 100vh;}
-.intro_wrap .intro_bg{width:100%; padding: 80px 165px 60px; box-sizing: border-box;}
+.intro_wrap .intro_bg{width:100%; padding: 80px 165px 60px;}
 .intro_wrap .intro_bg img{display:block; width:auto; max-height: 1055px;}
 
 .intro_wrap .intro_txt{display: flex; align-items: center; flex-direction: column; width: 50%; padding-right: 60px;}

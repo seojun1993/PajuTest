@@ -1,25 +1,83 @@
 // 페이지 전환
 // 초기 세팅
+let pageStack = [];
 let swiper = null;
+let includeDiv = document.getElementById("div_main_container");
 
-fetchAndInjectHTML('GUIDE_01');
+// fetchAndInjectHTML('FLOOR');
 
-function fetchAndInjectHTML(url) {
+// function fetchAndInjectHTML(url) {
+
+//     link = url + '.html';
+
+//     fetch(link)
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error('Network response was not ok');
+//             }
+//             return response.text();
+//         })
+//         .then(htmlContent => {
+//             const container = document.getElementById('div_main_container');
+//             container.innerHTML = '';
+//             container.innerHTML = htmlContent;
+
+//             pageStack.push(link);
+
+//             // 수어 감추는 페이지
+//             if (url === 'FLOOR' || url.includes('GUIDE')) {
+//                 document.querySelector('.sign_character').style.visibility = 'hidden';
+//             } else {
+//                 document.querySelector('.sign_character').style.visibility = 'visible';
+//             }
+//             // 수어 감추는 페이지
+
+//             // 푸터 감추는 페이지
+//             if (url === 'INTRO' || url === 'USER_CHOICE' || url.includes('GUIDE')) {
+//                 document.querySelector('footer').style.display = 'none';
+//                 document.getElementById('div_main_container').style.height = 100 + '%';
+//             } else {
+//                 document.querySelector('footer').style.display = 'block';
+//                 document.getElementById('div_main_container').style.height = 1555 + 'px';
+//             }
+//             // 푸터 감추는 페이지
+
+//             // HTML 파일에 포함된 스크립트 실행
+
+//                 scripts = container.querySelectorAll('script');
+//                 scripts.forEach(script => {
+//                     const newScript = document.createElement('script');
+//                     newScript.type = 'text/javascript';
+//                     newScript.innerHTML = script.innerHTML;
+//                     container.appendChild(newScript);
+//                 })
+
+
+//             getPopup();
+
+//             if (swiper != null) swiper.destroy();
+//             swiperContent(url);
+
+//         })
+//         .catch(error => console.error('Error fetching or injecting HTML:', error));
+// }
+
+loadIncludeHTML('GUIDE_01')
+
+function loadIncludeHTML(url) {
+
     link = url + '.html';
-    fetch(link)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.text();
-        })
-        .then(htmlContent => {
-            const container = document.getElementById('div_main_container');
 
-            container.innerHTML = htmlContent;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            includeDiv = document.getElementById("div_main_container");
+            
+            includeDiv.innerHTML = this.responseText;
+            // HTML 파일이 로드되면 스크립트를 호출
 
             // 수어 감추는 페이지
-            if (url === 'GUIDE_01' || url === 'FLOOR') {
+            if (url === 'FLOOR' || url.includes('GUIDE')) {
                 document.querySelector('.sign_character').style.visibility = 'hidden';
             } else {
                 document.querySelector('.sign_character').style.visibility = 'visible';
@@ -27,48 +85,47 @@ function fetchAndInjectHTML(url) {
             // 수어 감추는 페이지
 
             // 푸터 감추는 페이지
-            if (url === 'INTRO' || url === 'USER_CHOICE' || url === 'GUIDE_01') {
+            if (url === 'INTRO' || url === 'USER_CHOICE' || url.includes('GUIDE')) {
                 document.querySelector('footer').style.display = 'none';
+                includeDiv.style.height = 100 + '%';
             } else {
                 document.querySelector('footer').style.display = 'block';
+                includeDiv.style.height = 1555 + 'px';
             }
             // 푸터 감추는 페이지
+            loadIncludedScript(url);
 
-            // HTML 파일에 포함된 스크립트 실행
-            scripts = container.querySelectorAll('script');
-            scripts.forEach(script => {
-                const newScript = document.createElement('script');
-                newScript.type = 'text/javascript';
-                newScript.innerHTML = script.innerHTML;
-                container.appendChild(newScript);
-            });
+            for(let i = 0; i < document.querySelectorAll('.btn_url').length; i++){
+                document.querySelectorAll('.btn_url')[i].addEventListener('click', () => {
+                    alert(1);
 
-            getUrl();
-            getPopup();
+                    let getUrl = document.querySelectorAll('.btn_url')[i].getAttribute('data-link');
 
-            if (swiper != null) swiper.destroy();
-            swiperContent(url);
+                    loadIncludeHTML(getUrl);
+                })
+            }
 
-        })
-        .catch(error => console.error('Error fetching or injecting HTML:', error));
+        }
+    };
+    xhttp.open("GET", link, true);
+    xhttp.send();
 }
 
-function getUrl() {
-    let urlBtn = document.querySelectorAll('.btn_url');
+// included.html의 JavaScript 부분
+function loadIncludedScript(url) {
+    link = url.toLocaleLowerCase();
 
-    urlBtn.forEach((item) => {
-        item.addEventListener('click', () => {
-
-            let getUrl = item.getAttribute('data-link');
-            fetchAndInjectHTML(getUrl);
-        })
-    })
+    console.log(link);
+    var script = document.createElement("script");
+    script.src = 'include/js/' + link + '.js';
+    includeDiv.appendChild(script);
 }
 // 페이지 전환
 
 function swiperContent(id) {
     let target = id.toLocaleLowerCase().replace(/_/g, '') + '_swiper';
     let renderBulletFn;
+    let typeFn;
 
     if (!id) {
         return;
@@ -82,10 +139,25 @@ function swiperContent(id) {
                             <span class="txt">${guideArr[index]}</span>
                         </div>`
             }
-
-            document.querySelector('.swiper-pagination').classList.add('custom_pagination')
+            document.querySelector('.swiper-pagination').classList.add('guide_pagination')
         } else {
             renderBulletFn = false;
+        }
+
+        if (id === 'CULTURE') {
+            typeFn = 'fraction'
+            document.querySelector('.swiper-pagination').classList.add('culture_pagination')
+
+            onOptions = {
+                slideChange: function () {
+                    document.querySelector('.culture_container').scrollTo({
+                        top: 0,
+                    })
+                }
+            }
+        } else {
+            typeFn = 'bullets';
+            onOptions = false;
         }
 
         let swiper = new Swiper(`.${target}`, {
@@ -95,11 +167,14 @@ function swiperContent(id) {
                 el: ".swiper-pagination",
                 clickable: true,
                 renderBullet: renderBulletFn,
+                type: typeFn,
             },
             navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
             },
+
+            on: onOptions
         });
     }
 }

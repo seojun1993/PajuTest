@@ -1,6 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="35.383" height="32.1" viewBox="0 0 35.383 32.1">
-  <g id="그룹_2070" data-name="그룹 2070" transform="translate(-228.971 -208.232)">
-    <path id="패스_3911" data-name="패스 3911" d="M233.586,227.5H262.25" transform="translate(2.104 -3.22)" fill="none" stroke="#313131" stroke-width="5"/>
-    <path id="패스_3912" data-name="패스 3912" d="M0,0V20.2H20.2" transform="translate(246.789 210) rotate(45)" fill="none" stroke="#313131" stroke-width="5"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="88.956" height="68.913" viewBox="0 0 88.956 68.913">
+  <path id="합치기_72" data-name="합치기 72" d="M46.16,17.806H0V43.92H46.16V62.913l36.8-31.457L46.16,0Z" transform="translate(85.956 65.913) rotate(180)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
 </svg>

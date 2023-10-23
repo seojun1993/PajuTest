@@ -1,13 +1,82 @@
-/* 사용안내 */
-.pad_wrap .pad_container{padding-top: 400px;}
-.pad_wrap .pad_container .txt_box{text-align: center; padding-bottom: 40px;}
-.pad_wrap .pad_container .txt_box p{font-size: 3rem; line-height: 4.8rem;}
-.pad_wrap .pad_container .img_box img{display:block; width:auto;  max-height: 515px; margin: 0 auto;}
-.pad_wrap .pad_container .swiper-button-next{right:30px;}
-.pad_wrap .pad_container .swiper-button-prev{left:30px;}
-.pad_wrap .pad_container .swiper-button-next, 
-.pad_wrap .pad_container .swiper-button-prev{color:#fff; margin:0; transform: translateY(calc(-50% - 46px));}
-.pad_wrap .pad_container .swiper-button-next:after, 
-.pad_wrap .pad_container .swiper-button-prev:after{font-size: 60px;}
-.pad_wrap .pad_container .swiper-button-disabled{opacity: 0 !important;}
-/* 사용안내 */
+/* 커스텀 스와이퍼 페이지네이션 */
+.guide_pagination{position: relative !important; display:flex; justify-content: center; gap:50px; padding:55px 0 120px 0;}
+.guide_pagination .page{font-size: 3rem; width:auto; height: auto; background: none; border-radius: unset;}
+.guide_pagination .page{display:flex; align-items: center; gap:18px}
+.guide_pagination .page .num{font-weight: 600; width:54px; height: 54px; line-height: 48px; background:#585858; border-radius: 50%;}
+.guide_pagination .page.swiper-pagination-bullet-active .num{background:#04ACEA;}
+.guide_pagination .page.active .txt{color:red;}
+/* 커스텀 스와이퍼 페이지네이션 */
+
+.guide_wrap{height: 100%;}
+/* 사용안내 GUIDE */
+.guide_wrap .pad_container{height:calc(100% - 550px); padding-top: 400px;}
+.guide_wrap .pad_container .txt_box{text-align: center; padding-bottom: 40px;}
+.guide_wrap .pad_container .txt_box p{font-size: 3rem; line-height: 4.8rem;}
+.guide_wrap .pad_container .img_box img{display:block; width:auto;  max-height: 515px; margin: 0 auto;}
+.guide_wrap .pad_container .swiper-button-next{right:30px;}
+.guide_wrap .pad_container .swiper-button-prev{left:30px;}
+.guide_wrap .pad_container .swiper-button-next, 
+.guide_wrap .pad_container .swiper-button-prev{color:#fff; margin:0; transform: translateY(calc(-50% - 46px));}
+.guide_wrap .pad_container .swiper-button-next:after, 
+.guide_wrap .pad_container .swiper-button-prev:after{font-size: 60px;}
+.guide_wrap .pad_container .swiper-button-disabled{opacity: 0 !important;}
+.guide_wrap .action_wrap{height:550px;}
+/* 사용안내 GUIDE */
+
+/* 안내페이지 GUIDE_02 */
+.guide_container{height:calc(100% - 550px); }
+.guide_btn_wrap{padding:380px 125px 0;}
+.guide_btn_wrap ul{display:flex; gap:70px;}
+.guide_btn_wrap ul li{position: relative;}
+
+.guide_btn_wrap ul li button{position: relative; width:380px; height:550px; font-size: 5.4rem; color: #fff; font-weight: bold; background: #4B4C56; 
+    box-shadow: -20px 10px 30px rgba(0, 0, 0, .6), inset 0 2px 1px rgba(255, 255, 255, .16);
+}
+.guide_btn_wrap ul li button::before{content: ''; clear:both; display:inline-block; position: absolute; top:50%; transform: translateY(-50%); left:0; width:10px; height:60px; background:var(--borderColor);}
+/* 안내페이지 GUIDE_02 */
+
+/* 청사안내 GUIDE_03 */
+.guide_floor_container{height: calc(100% - 550px); padding-top: 170px;}
+.guide_floor_container .map_main{position:relative; width: 100%;}
+.guide_floor_container #id_map_main{height: 900px;}
+.guide_floor_container .map_main .touch_guide{position: absolute; bottom: 36px; left:50%; transform: translateX(-50%); width:730px; height:120px; display:flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, .7); transition: all 1.5s;}
+.guide_floor_container .map_main .touch_guide img{width:auto; height:67px;}
+.guide_floor_container .map_main .touch_guide span{font-size: 3rem; color:#fff; padding-left: 40px;}
+.guide_floor_container .map_main > div img{width:100%;}
+.guide_floor_container .map_action{display: flex; justify-content: center; margin-top: 30px ;}
+.guide_floor_container .map_action .btn_wrap{display:flex; align-items: center; gap: 5px;}
+.guide_floor_container .map_action .btn_wrap button{display:flex; justify-content: center; align-items: center; gap: 20px; width: 220px; height: 70px; font-size: 3.5rem; color: #fff; font-weight: bold; background: #4B4C56; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .6), inset 0 1px 1px rgba(255, 255, 255, .16);
+}
+.guide_floor_container .map_action .btn_wrap button#mapPlus{border-radius: 80px 0 0 80px;}
+.guide_floor_container .map_action .btn_wrap button#mapMinus{border-radius: 0 80px 80px 0;}
+/* 청사안내 GUIDE_03 */
+
+/* 많이찾는 업무안내 GUIDE_FAQ */
+.faq_container{height: calc(100% - 550px); padding:350px 0 200px;}
+.faq_container .faq_tab_wrap{width: 100%; padding: 0 90px;}
+.faq_container .faq_tab_wrap ul{}
+.faq_container .faq_tab_wrap ul li{}
+.faq_container .faq_tab_wrap ul li + li{margin-top: 44px;}
+.faq_container .faq_tab_wrap ul li button{width: 100%; max-width: 900px; height:110px; color:#fff; font-size: 5rem; font-weight: bold; background: #676668; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .6), inset 0 1px 1px rgba(255, 255, 255, .16);
+}
+/* 많이찾는 업무안내 GUIDE_FAQ */
+
+/* 많이찾는 업무안내 지도 GUIDE_FAQ_FLOOR */
+.faq_floor_container{height: calc(100% - 550px); padding-top: 300px;}
+.faq_floor_container .map_main{position:relative; width: 100%;}
+.faq_floor_container #id_map_main{height: 625px;}
+.faq_floor_container .map_main .faq_title{padding:0 0 40px 80px;}
+.faq_floor_container .map_main .faq_title h3{font-size: 4.6rem; font-weight: bold; padding-bottom: 15px;}
+.faq_floor_container .map_main .faq_title span{font-size: 3.1rem;}
+.faq_floor_container .map_main .touch_guide{position: absolute; bottom: 36px; left:50%; transform: translateX(-50%); width:730px; height:120px; display:flex; align-items: center; justify-content: center; background: rgba(0, 0, 0, .7); transition: all 1.5s;}
+.faq_floor_container .map_main .touch_guide img{width:auto; height:67px;}
+.faq_floor_container .map_main .touch_guide span{font-size: 3rem; color:#fff; padding-left: 40px;}
+.faq_floor_container .map_main > div img{width:100%;}
+.faq_floor_container .map_action{display: flex; justify-content: center; margin-top: 30px ;}
+.faq_floor_container .map_action .btn_wrap{display:flex; align-items: center; gap: 5px;}
+.faq_floor_container .map_action .btn_wrap button{display:flex; justify-content: center; align-items: center; gap: 20px; width: 220px; height: 70px; font-size: 3.5rem; color: #fff; font-weight: bold; background: #4B4C56; box-shadow: 0 4px 10px rgba(0, 0, 0, .6), inset 0 1px 1px rgba(255, 255, 255, .16);}
+.faq_floor_container .map_action .btn_wrap button#mapPlus{border-radius: 80px 0 0 80px;}
+.faq_floor_container .map_action .btn_wrap button#mapMinus{border-radius: 0 80px 80px 0;}
+/* 많이찾는 업무안내 지도 GUIDE_FAQ_FLOOR */

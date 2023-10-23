@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39.215" height="41.321" viewBox="0 0 39.215 41.321">
+  <g id="bt_map_out" transform="translate(36.342 38.448) rotate(180)">
+    <g id="그룹_8580" data-name="그룹 8580" transform="translate(319.704 1338.432) rotate(180)">
+      <g id="타원_65" data-name="타원 65" transform="translate(283.361 1299.984)" fill="none" stroke="#fff" stroke-width="4">
+        <ellipse cx="17.342" cy="17.342" rx="17.342" ry="17.342" stroke="none"/>
+        <ellipse cx="17.342" cy="17.342" rx="15.342" ry="15.342" fill="none"/>
+      </g>
+      <path id="패스_5017" data-name="패스 5017" d="M0,0,8.333,9.349" transform="matrix(1, -0.017, 0.017, 1, 311.209, 1329.085)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="4"/>
+      <line id="선_2" data-name="선 2" y2="11.427" transform="translate(306.417 1317.326) rotate(90)" fill="none" stroke="#fff" stroke-linecap="square" stroke-width="4"/>
+    </g>
+  </g>
+</svg>
