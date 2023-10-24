@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Document</title>
 
     <link rel="stylesheet" href="include/css/reset.css">
@@ -19,16 +19,9 @@
     <link rel="stylesheet" href="include/css/organization.css">
     <link rel="stylesheet" href="include/css/park.css">
     <link rel="stylesheet" href="include/css/culture.css">
-
-    <script src="include/js/lib/jquery-3.7.0.js"></script>
-    <script src="include/js/lib/jquery.xml2json.js"></script>
-    <script src="include/js/header.js"></script>
-    <script src="include/js/common.js"></script>
-
-    <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=pbzx0AUEr6Phtgodg8Ht56gIAUEhJczUgS7iUFpG"></script>
 </head>
 
-<body>
+<body class="sign_on">
     <div id="wrap">
         <header>
             <div class="inner">
@@ -50,7 +43,7 @@
                     <div class="pop_table">
                         <div class="pop_content">
                             <h3><strong>본관</strong>미래전략관</h3>
-                            <div class="inner">
+                            <div class="container">
                                 <table>
                                     <colgroup>
                                         <col width="">
@@ -141,15 +134,17 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="pop_action">
-                            <button class="location">
-                                <img src="images/icon/wayfind.svg" alt="길찾기">
-                                <span>길찾기</span>
-                            </button>
-                            <button class="close">
-                                <img src="images/icon/close.svg" alt="닫기">
-                                <span>닫기</span>
-                            </button>
+                        <div class="cont_inner">
+                            <div class="pop_action">
+                                <button class="location">
+                                    <img src="images/icon/wayfind.svg" alt="길찾기">
+                                    <span>길찾기</span>
+                                </button>
+                                <button class="close" onclick="closePopup()">
+                                    <img src="images/icon/close.svg" alt="닫기">
+                                    <span>닫기</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -162,7 +157,7 @@
                                     <button>휠체어<br/>동선</button>
                                 </div>
                                 <div class="pop_action">
-                                    <button class="close">
+                                    <button class="close" onclick="closePopup()">
                                         <img src="images/icon/close.svg" alt="닫기">
                                         <span>닫기</span>
                                     </button>
@@ -176,22 +171,24 @@
         </section>
 
         <footer>
-            <div class="tab_main_wrap">
-                <nav id="gnb">
-                    <ul>
-                        <li><button class="btn_url active" data-link="FLOOR" onclick="gnbActive(this)">청사안내</button></li>
-                        <li><button class="btn_url" data-link="ORGANIZATION" onclick="gnbActive(this)">조직도</button></li>
-                        <li><button class="btn_url" data-link="PARK" onclick="gnbActive(this)">주차안내</button></li>
-                        <li><button class="btn_url" data-link="CULTURE" onclick="gnbActive(this)">이달의<br />문화행사</button></li>
-                    </ul>
-                </nav>
+            <div class="cont_inner">
+                <div class="tab_main_wrap">
+                    <nav id="gnb">
+                        <ul>
+                            <li><button class="active" data-link="FLOOR" onclick="gnbActive(this)">청사안내</button></li>
+                            <li><button data-link="ORGANIZATION" onclick="gnbActive(this)">조직도</button></li>
+                            <li><button data-link="PARK" onclick="gnbActive(this)">주차안내</button></li>
+                            <li><button data-link="CULTURE" onclick="gnbActive(this)">이달의<br />문화행사</button></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
             <div class="action_wrap main">
                 <div class="btn_container">
                     <div class="con_L">
                         <div class="control_inner">
                             <div class="btn_wrap">
-                                <button class="btn_url btn home btn_tab control" data-link="USER_CHOICE" data-text="처음으로">
+                                <button class="btn home btn_tab control" data-link="USER_CHOICE" data-text="처음으로" onclick="setUrl(this)">
                                     <img src="images/commons/home.svg" alt="처음으로"/>
                                 </button>
                             </div>
@@ -278,22 +275,29 @@
             </div>
         </footer>
 
-        <div class="sign_character">
+        <div class="sign_character small">
             <div id="canvasContainer" class="inner">
                 <canvas id="index_signcanvas"></canvas>
             </div>
         </div>
+
+        <script type="module">
+            import WebGLPlayer from "./include/js/lib/WebGLPlayer.js";
+                    window.webGLPlayer = new WebGLPlayer(document.getElementById("index_signcanvas"), 
+                    {alpha: 0 }, "./include/js/lib");
+                    webGLPlayer.playerInit('Eve', 'Eve_IFC_Mall',
+                    (callback) => {console.log('WebGl Player Init : ', callback)});
+        </script>
     </div>
 
-    <script type="module">
-        import WebGLPlayer from "./include/js/lib/WebGLPlayer.js";
-                window.webGLPlayer = new WebGLPlayer(document.getElementById("index_signcanvas"), 
-                {alpha: 0 }, "./include/js/lib");
-                webGLPlayer.playerInit('Eve', 'Eve_IFC_Mall',
-                (callback) => {console.log('WebGl Player Init : ', callback)});
-        </script>
-
+    <script src="include/js/lib/jquery-3.7.0.js"></script>
+    <script src="include/js/lib/jquery.xml2json.js"></script>
+    <script src="include/js/header.js"></script>
+    <script src="include/js/common.js"></script>
+    <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=pbzx0AUEr6Phtgodg8Ht56gIAUEhJczUgS7iUFpG"></script>
     <script src="include/js/swiper/swiper-bundle.min.js"></script>
+
+    <script src="include/js/floor.js"></script>
 
     <!-- <script>
         let map;

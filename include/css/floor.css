@@ -1,7 +1,7 @@
 /* 청사안내 */
 .floor_wrap .floor_container{position: relative; width: 100%; height:calc(100% - 265px);}
 .floor_wrap .floor_container img{width:100%;}
-.floor_wrap .floor_container .location{position: absolute; top: 0; bottom:0; left:0; right:0; font-weight: bold;}
+.floor_wrap .floor_container .location{position: absolute; top: 0; bottom:0; left:0; right:0;}
 .floor_wrap .floor_container .location button{position: absolute; display:flex; align-items: center; height:65px; border-radius: 35px; background: #313131; border:3px solid #DCDCDC; color:#fff; font-weight: bold; font-size: 2.5rem; padding:0 25px 0 12px;}
 .floor_wrap .floor_container .location button.active{background:#fff; color:#313131;}
 .floor_wrap .floor_container .location .location_01{top:541px; right: 366px;}
@@ -69,3 +69,13 @@
 .floor_wrap #lnb ul li button img{width:40px; height:40px;}
 .floor_wrap #lnb ul li button span{display:inline-block; width:calc(100% - 48px); font-size:2.8rem; font-weight: bold;}
 /* 청사안내 */
+
+/* 수어모드 */
+.sign_on #lnb{padding:0 28px 0 0;}
+.sign_on .floor_wrap #lnb ul{position: relative; row-gap: 16px; justify-content: flex-end; flex-wrap: wrap;}
+.sign_on .floor_wrap #lnb ul li{width: 100%; max-width: 180px;}
+.sign_on .floor_wrap #lnb ul li:first-child{width:110px; position: absolute; left:0; top:0; bottom:0;}
+.sign_on .floor_wrap #lnb ul li:first-child button{width:100%; height: 100%; flex-direction: column; flex-wrap: wrap; padding:0;}
+.sign_on .floor_wrap #lnb ul li:first-child button span{display:block; width:100%; padding-top: 10px;}
+.sign_on .floor_wrap #lnb ul li button{width: 180px; height:55px;}
+.sign_on .floor_wrap #lnb ul li button span{font-size: 2.3rem;}

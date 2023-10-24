@@ -3,11 +3,11 @@
         <h3 class="tab_title">많이찾는 업무안내</h3>
         <div class="faq_tab_wrap">
             <ul>
-                <li><button class="btn_url" data-link="GUIDE_FAQ_FLOOR">1. 장애연금 / 장애수당</button></li>
-                <li><button class="btn_url" data-link="GUIDE_FAQ_FLOOR">2. 장애인복지업무</button></li>
-                <li><button class="btn_url" data-link="GUIDE_FAQ_FLOOR">3. 장애인의료, 생활지원</button></li>
-                <li><button class="btn_url" data-link="GUIDE_FAQ_FLOOR">4. 장애인자립</button></li>
-                <li><button class="btn_url" data-link="GUIDE_FAQ_FLOOR">5. 종합민원업무</button></li>
+                <li><button data-link="GUIDE_FAQ_FLOOR" onclick="setUrl(this)">1. 장애연금 / 장애수당</button></li>
+                <li><button data-link="GUIDE_FAQ_FLOOR" onclick="setUrl(this)">2. 장애인복지업무</button></li>
+                <li><button data-link="GUIDE_FAQ_FLOOR" onclick="setUrl(this)">3. 장애인의료, 생활지원</button></li>
+                <li><button data-link="GUIDE_FAQ_FLOOR" onclick="setUrl(this)">4. 장애인자립</button></li>
+                <li><button data-link="GUIDE_FAQ_FLOOR" onclick="setUrl(this)">5. 종합민원업무</button></li>
             </ul>
         </div>
     </div>
@@ -77,12 +77,12 @@
             </div>
         </div>
         <div class="link_container">
-                <button class="btn_url" data-link="USER_CHOICE">
+                <button data-link="USER_CHOICE" onclick="setUrl(this)">
                     <img src="images/commons/home.svg" alt="처음으로">
                     <h3>처음으로</h3>
                 </button>
 
-                <button class="btn_back">
+                <button data-link="BACK" onclick="setUrl(this)">
                     <img src="images/commons/back.svg" alt="이전으로">
                     <h3>이전으로</h3>
                 </button>

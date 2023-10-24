@@ -185,7 +185,7 @@
                             <dt>1층</dt>
                             <dd>
                                 <ul>
-                                    <li><button>테스트1</button></li>
+                                    <li><button class="btn_pop" onclick="getPopup()">테스트1</button></li>
                                     <li><button>테스트2</button></li>
                                     <li><button>테스트3</button></li>
                                     <li><button>테스트4</button></li>
@@ -305,7 +305,7 @@
                     <dt>5층</dt>
                     <dd>
                         <ul>
-                            <li><button>도로건설과</button></li>
+                            <li><button onclick="test()">도로건설과</button></li>
                             <li><button>공공건축과</button></li>
                             <li><button>대표전화교환실</button></li>
                         </ul>
@@ -313,71 +313,121 @@
                 </dl>
             </div>
         </div>
-        <div class="tab_sub_wrap">
-            <div id="lnb">
-                <ul>
-                    <li>
-                        <button data-location="all">
-                            <img src="images/number/government/num_00.png" alt="전체">
-                            <span>전체</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="active" data-location="location_01">
-                            <img src="images/number/government/num_01.png" alt="민원동">
-                            <span>민원동</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button data-location="location_02">
-                            <img src="images/number/government/num_02.png" alt="복지동">
-                            <span>복지동</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button data-location="location_03">
-                            <img src="images/number/government/num_03.png" alt="본관">
-                            <span>본관</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button data-location="location_04">
-                            <img src="images/number/government/num_04.png" alt="신관">
-                            <span>신관</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button data-location="location_05">
-                            <img src="images/number/government/num_05.png" alt="별관">
-                            <span>별관</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button data-location="location_06">
-                            <img src="images/number/government/num_06.png" alt="차고동">
-                            <span>차고동</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button data-location="location_07">
-                            <img src="images/number/government/num_07.png" alt="소공연장">
-                            <span>소공연장</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button data-location="location_08">
-                            <img src="images/number/government/num_08.png" alt="명성빌딩">
-                            <span>명성빌딩</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button data-location="location_09">
-                            <img src="images/number/government/num_09.png" alt="중앙빌딩">
-                            <span>중앙빌딩</span>
-                        </button>
-                    </li>
-                </ul>
+        <div class="cont_inner">
+            <div class="tab_sub_wrap">
+                <div id="lnb">
+                    <ul>
+                        <li>
+                            <button data-location="all">
+                                <img src="images/number/government/num_00.png" alt="전체">
+                                <span>전체</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="active" data-location="location_01">
+                                <img src="images/number/government/num_01.png" alt="민원동">
+                                <span>민원동</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button data-location="location_02">
+                                <img src="images/number/government/num_02.png" alt="복지동">
+                                <span>복지동</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button data-location="location_03">
+                                <img src="images/number/government/num_03.png" alt="본관">
+                                <span>본관</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button data-location="location_04">
+                                <img src="images/number/government/num_04.png" alt="신관">
+                                <span>신관</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button data-location="location_05">
+                                <img src="images/number/government/num_05.png" alt="별관">
+                                <span>별관</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button data-location="location_06">
+                                <img src="images/number/government/num_06.png" alt="차고동">
+                                <span>차고동</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button data-location="location_07">
+                                <img src="images/number/government/num_07.png" alt="소공연장">
+                                <span>소공연장</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button data-location="location_08">
+                                <img src="images/number/government/num_08.png" alt="명성빌딩">
+                                <span>명성빌딩</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button data-location="location_09">
+                                <img src="images/number/government/num_09.png" alt="중앙빌딩">
+                                <span>중앙빌딩</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<script src="include/js/floor.js"></script>
+
+<script>
+    
+let subBtn = document.querySelectorAll('#lnb ul li');
+let mapBtn = document.querySelectorAll('#location button');
+
+subBtn.forEach((list, idx) => {
+    list.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        for (let i = 0; i < subBtn.length; i++) {
+            subBtn[i].querySelector('button').classList.remove('active');
+        }
+
+        list.querySelector('button').classList.add('active');
+
+        let location = list.querySelector('button').getAttribute('data-location');
+
+        if (location === 'all') {
+            document.querySelector('.tab_all_result').style.display = 'flex';
+            document.querySelector('.tab_detail_result').style.display = 'none';
+
+            setTimeout(() => {
+                document.querySelector('.touch_guide').style.opacity = 0;
+            }, 5000)
+
+        } else {
+            document.querySelector('.tab_all_result').style.display = 'none';
+            document.querySelector('.tab_detail_result').style.display = 'flex';
+            document.querySelector('.touch_guide').style.opacity = 1;
+
+            document.getElementById('location').querySelectorAll('button').forEach((mapBtn) => {
+                mapBtn.classList.remove('active');
+
+                if (location === mapBtn.getAttribute('data-location')) {
+                    mapBtn.classList.add('active');
+
+
+                    // 데이터 교체 자리
+                    // 데이터 교체 자리
+                }
+            })
+        }
+    })
+})
+</script>

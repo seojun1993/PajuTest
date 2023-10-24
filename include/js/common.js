@@ -1,136 +1,77 @@
 // 페이지 전환
 // 초기 세팅
-let pageStack = [];
 let swiper = null;
-let includeDiv = document.getElementById("div_main_container");
+let backUrl = [];
 
-// fetchAndInjectHTML('FLOOR');
+loadPage('INTRO');
 
-// function fetchAndInjectHTML(url) {
+// 페이지 전환
+function loadPage(url) {
+    backUrl = Array.from(new Set(backUrl));
+    let includeDiv = document.getElementById('div_main_container')
+    let link = url + '.html';
+    let xhr = new XMLHttpRequest();
 
-//     link = url + '.html';
+    url.includes('GUIDE') ? backUrl.push(url) : backUrl;;
 
-//     fetch(link)
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error('Network response was not ok');
-//             }
-//             return response.text();
-//         })
-//         .then(htmlContent => {
-//             const container = document.getElementById('div_main_container');
-//             container.innerHTML = '';
-//             container.innerHTML = htmlContent;
+    if(url == 'BACK'){
+        let lastUrl = backUrl.slice(-2)[0];
+        backUrl.pop();
+        loadPage(lastUrl);
 
-//             pageStack.push(link);
+        return;
+    }
 
-//             // 수어 감추는 페이지
-//             if (url === 'FLOOR' || url.includes('GUIDE')) {
-//                 document.querySelector('.sign_character').style.visibility = 'hidden';
-//             } else {
-//                 document.querySelector('.sign_character').style.visibility = 'visible';
-//             }
-//             // 수어 감추는 페이지
+    xhr.open('GET', link, true);
+    xhr.onreadystatechange = () => {
+        if(xhr.readyState === 4 && xhr.status === 200) {
+            // 로드한 HTML을 현재 페이지에 추가
+            includeDiv.innerHTML = xhr.responseText;
 
-//             // 푸터 감추는 페이지
-//             if (url === 'INTRO' || url === 'USER_CHOICE' || url.includes('GUIDE')) {
-//                 document.querySelector('footer').style.display = 'none';
-//                 document.getElementById('div_main_container').style.height = 100 + '%';
-//             } else {
-//                 document.querySelector('footer').style.display = 'block';
-//                 document.getElementById('div_main_container').style.height = 1555 + 'px';
-//             }
-//             // 푸터 감추는 페이지
+            const SignCharacter = document.querySelector('.sign_character');
+            const Footer = document.querySelector('footer');
 
-//             // HTML 파일에 포함된 스크립트 실행
-
-//                 scripts = container.querySelectorAll('script');
-//                 scripts.forEach(script => {
-//                     const newScript = document.createElement('script');
-//                     newScript.type = 'text/javascript';
-//                     newScript.innerHTML = script.innerHTML;
-//                     container.appendChild(newScript);
-//                 })
-
-
-//             getPopup();
-
-//             if (swiper != null) swiper.destroy();
-//             swiperContent(url);
-
-//         })
-//         .catch(error => console.error('Error fetching or injecting HTML:', error));
-// }
-
-loadIncludeHTML('GUIDE_01')
-
-function loadIncludeHTML(url) {
-
-    link = url + '.html';
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            includeDiv = document.getElementById("div_main_container");
-            
-            includeDiv.innerHTML = this.responseText;
-            // HTML 파일이 로드되면 스크립트를 호출
-
-            // 수어 감추는 페이지
+            // // 수어 감추는 페이지
             if (url === 'FLOOR' || url.includes('GUIDE')) {
-                document.querySelector('.sign_character').style.visibility = 'hidden';
+                SignCharacter.style.visibility = 'hidden';
             } else {
-                document.querySelector('.sign_character').style.visibility = 'visible';
+                SignCharacter.style.visibility = 'visible';
             }
             // 수어 감추는 페이지
 
             // 푸터 감추는 페이지
             if (url === 'INTRO' || url === 'USER_CHOICE' || url.includes('GUIDE')) {
-                document.querySelector('footer').style.display = 'none';
+                Footer.style.display = 'none';
                 includeDiv.style.height = 100 + '%';
             } else {
-                document.querySelector('footer').style.display = 'block';
+                Footer.style.display = 'block';
                 includeDiv.style.height = 1555 + 'px';
             }
-            // 푸터 감추는 페이지
-            loadIncludedScript(url);
+            // // 푸터 감추는 페이지
 
-            for(let i = 0; i < document.querySelectorAll('.btn_url').length; i++){
-                document.querySelectorAll('.btn_url')[i].addEventListener('click', () => {
-                    alert(1);
-
-                    let getUrl = document.querySelectorAll('.btn_url')[i].getAttribute('data-link');
-
-                    loadIncludeHTML(getUrl);
-                })
-            }
-
+            swiperContent(url);
         }
-    };
-    xhttp.open("GET", link, true);
-    xhttp.send();
-}
+    }
 
-// included.html의 JavaScript 부분
-function loadIncludedScript(url) {
-    link = url.toLocaleLowerCase();
-
-    console.log(link);
-    var script = document.createElement("script");
-    script.src = 'include/js/' + link + '.js';
-    includeDiv.appendChild(script);
+    xhr.send();
 }
 // 페이지 전환
 
-function swiperContent(id) {
-    let target = id.toLocaleLowerCase().replace(/_/g, '') + '_swiper';
+function setUrl(btn) {
+    let link = btn.getAttribute('data-link');
+
+    loadPage(link);
+}
+
+function swiperContent(url) {
+    let target = url.toLocaleLowerCase().replace(/_/g, '') + '_swiper';
     let renderBulletFn;
     let typeFn;
 
-    if (!id) {
+    if (!url) {
         return;
     } else {
-        if (id === 'GUIDE_01') {
+        if (url === 'GUIDE_01') {
             let guideArr = ['점자패드 사용 안내', '키패드 사용 안내']
             renderBulletFn = function (index, className) {
                 return `
@@ -144,7 +85,7 @@ function swiperContent(id) {
             renderBulletFn = false;
         }
 
-        if (id === 'CULTURE') {
+        if (url === 'CULTURE') {
             typeFn = 'fraction'
             document.querySelector('.swiper-pagination').classList.add('culture_pagination')
 
@@ -185,37 +126,39 @@ function gnbActive(btn) {
     });
 
     btn.classList.add('active');
+    setUrl(btn);
 }
 
-function getPopup() {
-    let popBox = document.getElementById('div_pop');
-    let popBtn = document.querySelectorAll('.btn_pop');
+const popBox = document.getElementById('div_pop');
 
-    popBtn.forEach((item) => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
-            popBox.style.display = 'block';
-            document.querySelector('.pop_table').style.display = 'block';
+function getPopup(btn){
+    popBox.style.display = 'block';
+    document.querySelector('.pop_table').style.display = 'block';
+}
 
-            popBox.querySelector('.location').addEventListener('click', () => {
-                document.querySelector('.pop_table').style.display = 'none';
-                document.querySelector('.pop_location').style.display = 'block';
-            })
-
-            closePopup();
-        })
+function closePopup(){
+    popBox.style.display = 'none';
+    document.querySelectorAll('.pop_bg > div').forEach((div) => {
+        div.style.display = 'none';
     })
 }
 
-function closePopup() {
-    document.querySelectorAll('.pop_action .close').forEach((btn) => {
-        btn.addEventListener('click', () => {
-            document.getElementById('div_pop').style.display = 'none';
+// function getPopup() {
+//     let popBox = document.getElementById('div_pop');
+//     let popBtn = document.querySelectorAll('.btn_pop');
 
-            document.querySelectorAll('.pop_bg > div').forEach((div) => {
-                div.style.display = 'none';
-            })
+//     popBtn.forEach((item) => {
+//         item.addEventListener('click', (e) => {
+//             e.preventDefault();
+//             popBox.style.display = 'block';
+//             document.querySelector('.pop_table').style.display = 'block';
 
-        })
-    })
-}
+//             popBox.querySelector('.location').addEventListener('click', () => {
+//                 document.querySelector('.pop_table').style.display = 'none';
+//                 document.querySelector('.pop_location').style.display = 'block';
+//             })
+
+//             closePopup();
+//         })
+//     })
+// }

@@ -42,7 +42,7 @@
 
 .park_wrap .tab_content .tab_sub_wrap{height:100%;}
 .park_wrap  #lnb{display:flex; align-items: center; justify-content: center; height:265px; padding: 0 34px;}
-.park_wrap  #lnb ul{display:flex; flex-wrap: wrap; column-gap: 16px; row-gap: 20px;}
+.park_wrap  #lnb ul{width:100%; display:flex; justify-content: center; flex-wrap: wrap; column-gap: 16px; row-gap: 20px;}
 .park_wrap  #lnb ul li{width:calc(33.333%); max-width: 270px;}
 .park_wrap  #lnb ul li button{display:flex; justify-content: center; align-items: center; background: #676668; width:270px; height:85px; padding-left: 8px; color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6), inset 0 2px 1px rgba(255, 255, 255, 0.16);
@@ -52,3 +52,11 @@
 .park_wrap #lnb ul li button img{width:40px; height:40px;}
 .park_wrap #lnb ul li button span{display:inline-block; width:calc(100% - 48px); font-size:2.8rem; font-weight: bold;}
 /* 청사안내 */
+
+/* 수어모드 */
+
+.sign_on .park_wrap #lnb{padding:0;}
+.sign_on .park_wrap #lnb ul{column-gap: 20px; justify-content: flex-start;}
+.sign_on .park_wrap #lnb ul li{width: calc(33.333% - 20px);}
+.sign_on .park_wrap #lnb ul li button{width: 220px;}
+/* 수어모드 */

@@ -5,7 +5,7 @@
                 <div class="num">
                     <span>1</span>
                 </div>
-                <button  class="btn_url" data-link="FLOOR">
+                <button data-link="FLOOR" onclick="setUrl(this)">
                     <div class="choice_txt">
                         <p>일반 사용</p>
                     </div>
@@ -18,7 +18,7 @@
                 <div class="num">
                     <span>2</span>
                 </div>
-                <button class="btn_url" >
+                <button onclick="setUrl(this)">
                     <div class="choice_txt">
                         <p>음성 사용</p>
                         <span></span>
@@ -32,7 +32,7 @@
                 <div class="num">
                     <span>3</span>
                 </div>
-                <button class="btn_url" >
+                <button onclick="setUrl(this)">
                     <div class="choice_txt">
                         <p>수어 사용</p>
                         <span>청각장애인</span>
@@ -48,13 +48,13 @@
     <div class="choice_bot">
         <ul>
             <li>
-                <button class="btn01 shadow02">
+                <button>
                     <img src="images/icon/kiosk.svg" alt="키오스크 낮게 사용">
                 </button>
                 <p>키오스크<br/>낮게 사용</p>
             </li>
             <li>
-                <button class="btn_url btn01" data-link="GUIDE_01">
+                <button data-link="GUIDE_01" onclick="setUrl(this)">
                     <img src="images/icon/guide.svg" alt="사용안내">
                 </button>
                 <p>사용안내</p>
